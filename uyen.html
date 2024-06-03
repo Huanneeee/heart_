@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart with Uyên</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: white;
+            margin: 0;
+        }
+        .heart {
+            position: relative;
+            width: 200px;
+            height: 200px;
+        }
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 100px;
+            height: 160px;
+            background: red;
+            border-radius: 100px 100px 0 0;
+            transform: rotate(-45deg);
+            transform-origin: 100% 100%;
+        }
+        .heart::after {
+            left: 100px;
+            transform: rotate(45deg);
+            transform-origin: 0 100%;
+        }
+        .name {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="heart">
+        <div class="name">Uyên</div>
+    </div>
+
+    <script>
+        const heart = document.querySelector('.heart');
+        let visible = true;
+
+        setInterval(() => {
+            visible = !visible;
+            heart.style.visibility = visible ? 'visible' : 'hidden';
+        }, 500);
+    </script>
+</body>
+</html>
